@@ -23,7 +23,7 @@ namespace WebAPI1.Areas.Admin.Controllers
                 client.BaseAddress = new Uri(baseUrl); 
                 client.DefaultRequestHeaders.Clear(); 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); 
-                HttpResponseMessage res = await client.GetAsync("api/Product/GetAll"); // need to understand
+                HttpResponseMessage res = await client.GetAsync("api/Product/GetAll"); 
                 if(res.IsSuccessStatusCode)
                 {
                     var productList = res.Content.ReadAsStringAsync().Result; //all the data are combnined to get a Json type string product
@@ -47,7 +47,7 @@ namespace WebAPI1.Areas.Admin.Controllers
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await client.PostAsJsonAsync<Product>("api/Product/Add",product); // need to understand
+                HttpResponseMessage res = await client.PostAsJsonAsync<Product>("api/Product/Add",product); 
                 if (res.IsSuccessStatusCode)
                 {
                     message = "Save data successfully";
@@ -74,7 +74,7 @@ namespace WebAPI1.Areas.Admin.Controllers
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await client.GetAsync("api/Product/GetById?id="+id); // need to understand
+                HttpResponseMessage res = await client.GetAsync("api/Product/GetById?id="+id);
                 if (res.IsSuccessStatusCode)
                 {
                     var data = res.Content.ReadAsStringAsync().Result; //all the data are combnined to get a Json type string product
@@ -94,7 +94,7 @@ namespace WebAPI1.Areas.Admin.Controllers
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await client.PutAsJsonAsync<Product>("api/Product/Update", product); // need to understand
+                HttpResponseMessage res = await client.PutAsJsonAsync<Product>("api/Product/Update", product); 
                 if (res.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
@@ -122,7 +122,7 @@ namespace WebAPI1.Areas.Admin.Controllers
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await client.DeleteAsync("api/Product/Delete?id=" + productId); // need to understand
+                HttpResponseMessage res = await client.DeleteAsync("api/Product/Delete?id=" + productId); 
                 if (res.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
